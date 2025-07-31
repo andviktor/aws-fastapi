@@ -10,30 +10,30 @@ logger: Logger = Logger(__name__)
 
 @app.get("/")
 async def root() -> dict:
-    get_secret()
+    #get_secret()
     return {
         "python_version": platform.python_version(),
         "interpreter_path": sys.executable
     }
 
 
-def get_secret():
+# def get_secret():
 
-    secret_name = "ai-article-generator-secrets"
-    region_name = "us-east-1"
+#     secret_name = "ai-article-generator-secrets"
+#     region_name = "us-east-1"
 
-    session = boto3.session.Session()
-    client = session.client(
-        service_name='secretsmanager',
-        region_name=region_name
-    )
+#     session = boto3.session.Session()
+#     client = session.client(
+#         service_name='secretsmanager',
+#         region_name=region_name
+#     )
 
-    try:
-        get_secret_value_response = client.get_secret_value(
-            SecretId=secret_name
-        )
-    except Exception as e:
-        raise e
+#     try:
+#         get_secret_value_response = client.get_secret_value(
+#             SecretId=secret_name
+#         )
+#     except Exception as e:
+#         raise e
 
-    secret = get_secret_value_response['TEST_SECRET']
-    logger.error(f"Retrieved secret: {secret}")
+#     secret = get_secret_value_response['TEST_SECRET']
+#     logger.error(f"Retrieved secret: {secret}")
