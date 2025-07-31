@@ -1,11 +1,16 @@
 from fastapi import FastAPI
 import uvicorn
+import platform
+import sys
 
 app: FastAPI = FastAPI()
 
 @app.get("/")
 async def root() -> dict:
-    return {"message": "Welcome to the simple FastAPI application!"}
+    return {
+        "python_version": platform.python_version(),
+        "interpreter_path": sys.executable
+    }
 
 
 if __name__ == "__main__":
