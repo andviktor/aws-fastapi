@@ -11,7 +11,3 @@ async def root() -> dict:
         "python_version": platform.python_version(),
         "interpreter_path": sys.executable
     }
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port="8080")
