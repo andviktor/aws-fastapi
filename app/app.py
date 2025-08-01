@@ -12,7 +12,7 @@ logger: Logger = Logger(__name__)
 async def root() -> dict:
     #get_secret()
     return {
-        "secret": os.getenv("TEST_SECRET", "No secret found"),
+        "secret": os.getenv("SECRETS", "No secret found").get("TEST_SECRET"),
         "python_version": platform.python_version(),
         "interpreter_path": sys.executable
     }
