@@ -18,6 +18,3 @@ run:
   secrets:
     - name: TEST_SECRET
       value-from: "arn:aws:secretsmanager:us-east-1:851725500171:secret:ai-article-generator-secrets-pqh70E"
-
-instanceConfiguration:
-  instanceRoleArn: arn:aws:iam::851725500171:user/ai-article-generator
