@@ -3,7 +3,7 @@ import platform
 import sys
 import os
 from logging import Logger
-import boto3
+#import boto3
 
 app: FastAPI = FastAPI()
 logger: Logger = Logger(__name__)
