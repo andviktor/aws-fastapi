@@ -2,17 +2,19 @@ from fastapi import FastAPI
 import platform
 import sys
 import os
+import json
 from logging import Logger
 #import boto3
 
 app: FastAPI = FastAPI()
 logger: Logger = Logger(__name__)
+secrets = json.loads(os.getenv("SECRETS"))
 
 @app.get("/")
 async def root() -> dict:
     #get_secret()
     return {
-        "secret": os.getenv("SECRETS", "No secret found").get("TEST_SECRET"),
+        "secrets": secrets["TEST_SECRET"],
         "python_version": platform.python_version(),
         "interpreter_path": sys.executable
     }
